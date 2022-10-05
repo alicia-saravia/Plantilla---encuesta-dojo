@@ -11,6 +11,14 @@
 </head>
 <body>
     <h1 class="titulo">Encuesta Dojo</h1> 
+    {% with messages = get_flashed_messages() %} <!-- declara una variable llamada mensajes-->
+        {% if messages %}                        <!-- comprobar si hay algún mensaje -->
+            {% for message in messages %}<!-- recorrer los mensajes -->
+                <p>{{message}}</p>  <!-- muestra cada mensaje en una etiqueta de párrafo -->
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+        
 
     <form style="width: 50%;" action="/process" method="post">
         <div class="form-group row">
